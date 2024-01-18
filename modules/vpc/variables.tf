@@ -2,9 +2,6 @@ variable "project_name" {
   type = string
   default = "cloudV"
 }
-variable "region" {
-  type = string
-}
 variable "environment" {
   type = string
 }
@@ -23,12 +20,12 @@ variable "subnet_cidr_blocks" {
   description = "The CIDR blocks for the subnets"
 }
 
+variable "subnet_cidr_bits" {
+  type    = number
+  description = "The number of bits to use for subnetting the VPC's CIDR block"
+}
+
 variable "availability_zones" {
   type    = list(string)
   description = "The availability zones for the subnets"
-}
-
-variable "security_group_ids" {
-  type    = list(string)
-  description = "The IDs of the security groups to associate with the VPC"
 }
