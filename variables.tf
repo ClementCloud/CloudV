@@ -20,8 +20,4 @@ variable "vpc_definitions" {
     override_tags  = optional (string, "{}")
   }))
 
-variable "tags"{
-  type = map(string)
-}
-  
 }

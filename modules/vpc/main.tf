@@ -5,9 +5,7 @@ resource "aws_vpc" "test" {
   instance_tenancy = "default"
   enable_dns_hostnames = true
 
-  tags = {
-    name = "${var.name}-vpc"
-  }
+  tags = var.tags
 }
 resource "aws_internet_gateway" "aws_internet_gateway" {
   vpc_id = aws_vpc.test.id
