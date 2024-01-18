@@ -1,31 +1,36 @@
+#environment variables
+variable "region" {
+    description = "The region where the resources will be created."
+ 
+}
+
 variable "project_name" {
-  type = string
-  default = "cloudV"
+    description = "Name of the Project"
 }
+
 variable "environment" {
-  type = string
+    description = "Environment for which this resource is being created"
+    default     = "dev"
+}  
+
+#VPC variables
+variable "base_cidr_block" {
+  description = "Base CIDR block"
+  type        = string
+  default     = "10.0.0.0/16"
 }
 
-variable "default_tags" {
-  type = map(string)
-  default = {}
-}
-variable "vpc_cidr_block" {
-  type    = string
-  description = "The CIDR block for the VPC"
+variable "subnet_length" {
+  description = "The new prefix length for the subnet"
+  type        = number
+
 }
 
-variable "subnet_cidr_blocks" {
-  type    = list(string)
-  description = "The CIDR blocks for the subnets"
+variable "subnet_count" {
+  description = "The number of subnets to create"
+  type        = number
+
 }
 
-variable "subnet_cidr_bits" {
-  type    = number
-  description = "The number of bits to use for subnetting the VPC's CIDR block"
-}
 
-variable "availability_zones" {
-  type    = list(string)
-  description = "The availability zones for the subnets"
-}
+
