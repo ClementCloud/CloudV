@@ -1,5 +1,10 @@
 locals {
-  vpc_name = "${var.project_name}-vpc"
-  subnet_count = length(var.subnet_cidr_blocks)
-  subnet_cidr_formula = cidrsubnet(var.vpc_cidr_block, var.subnet_cidr_bits, count.index)
+    public_subnet_cidr_blocks = {
+        for i in range(var.subnet_count): tostring(i) => cidrsubnet(var.base_cidr_block,
+            var.subnet_length, i)
+    }
+    private_subnet_cidr_blocks = {
+        for i in range(var.subnet_count): tostring(i) => cidrsubnet(var.base_cidr_block,
+            var.subnet_length, i)
+    }
 }
