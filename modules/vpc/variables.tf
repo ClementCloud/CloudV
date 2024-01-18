@@ -14,7 +14,7 @@ variable "environment" {
 }  
 
 #VPC variables
-variable "base_cidr_block" {
+variable "cidr_block" {
   description = "Base CIDR block"
   type        = string
   default     = "10.0.0.0/16"
@@ -31,6 +31,4 @@ variable "subnet_count" {
   type        = number
 
 }
-
-
 
