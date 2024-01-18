@@ -1,4 +1,13 @@
 variable "project_name" {
-  description = "Name of the Project"
+  type = string
+  default = "cloudV"
+}
+
+variable "environment" {
+  type = string
+}
+
+variable "default_tags" {
+  type = map(string)
   default = {}
 }
