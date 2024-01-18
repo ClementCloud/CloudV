@@ -1,13 +1,24 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
-module "vpc" {
+module "vpc1" {
   source = "./modules/vpc"
-
-environment = "dev"
-vpc_cidr_block = "10.0.0.0/16"
-subnet_cidr_bits = 8
-subnet_cidr_blocks = outputs.subnet_cidr_blocks
-availability_zones = ["us-east-1a","us-east-1b","us-east-1c"]
+  project_name = "cfproject"
+  region = "us-east-2"
+  subnet_length = 5
+  subnet_count = 5
+  
+}
+module "vpc2" {
+  source = "./modules/vpc"
+  project_name = "cfproject"
+  region = "us-east-2"
+  subnet_length = 5
+  subnet_count = 5
+  
+}
+module "vpc3" {
+  source = "./modules/vpc"
+  project_name = "cfproject"
+  region = "us-east-2"
+  subnet_length = 5
+  subnet_count = 5
+  
 }
