@@ -4,14 +4,9 @@ variable "region" {
  
 }
 
-variable "project_name" {
-    description = "Name of the Project"
+variable "name" {
+    description = "Name of the Resources"
 }
-
-variable "environment" {
-    description = "Environment for which this resource is being created"
-    default     = "dev"
-}  
 
 #VPC variables
 variable "cidr_block" {
@@ -31,4 +26,8 @@ variable "subnet_count" {
   type        = number
 
 }
-
+variable "tags" {
+  description = "tags"
+  type        = map(string)
+  default     = {}
+}
