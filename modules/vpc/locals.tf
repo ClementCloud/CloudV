@@ -1,10 +1,7 @@
 locals {
-    public_subnet_cidr_blocks = {
+    subnet_cidr_blocks = {
         for i in range(var.subnet_count): tostring(i) => cidrsubnet(var.cidr_block,
-            var.subnet_length, i)
+            0, i)
     }
-    private_subnet_cidr_blocks = {
-        for i in range(var.subnet_count): tostring(i) => cidrsubnet(var.cidr_block,
-            var.subnet_length, i)
-    }
+    
 }

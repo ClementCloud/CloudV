@@ -15,11 +15,6 @@ variable "cidr_block" {
   default     = "10.0.0.0/16"
 }
 
-variable "subnet_length" {
-  description = "The new prefix length for the subnet"
-  type        = number
-
-}
 
 variable "subnet_count" {
   description = "The number of subnets to create"
