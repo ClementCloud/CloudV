@@ -1,24 +1,17 @@
-module "vpc1" {
-  source = "./modules/vpc"
-  project_name = "cfproject"
-  region = "us-east-2"
-  subnet_length = 5
-  subnet_count = 5
-  
+# Configure the AWS Provider
+provider "aws" {
+  region = var.region
 }
-module "vpc2" {
-  source = "./modules/vpc"
-  project_name = "cfproject"
-  region = "us-east-2"
-  subnet_length = 5
-  subnet_count = 5
-  
-}
-module "vpc3" {
-  source = "./modules/vpc"
-  project_name = "cfproject"
-  region = "us-east-2"
-  subnet_length = 5
-  subnet_count = 5
-  
+
+module "vpcs" {
+  source         = "./modules/vpc"
+
+  for_each       = var.vpc_definitions
+
+  name           = "${each.value.project_name}-${each.value.environment}-${each.key}"
+  region         = each.value.region
+  cidr_block     = each.value.cidr_block
+  subnet_length  = each.value.subnet_length
+  subnet_count   = each.value.subnet_count
+  tags           = merge(var.default_tags,jsondecode(each.value.override_tags))
 }
