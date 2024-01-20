@@ -11,6 +11,7 @@ module "vpcs" {
   name           = "${each.value.project_name}-${each.value.environment}-${each.key}"
   region         = each.value.region
   cidr_block     = each.value.cidr_block
+  subnet_length  = each.value.subnet_length
   subnet_count   = each.value.subnet_count
   tags           = merge(var.default_tags,jsondecode(each.value.override_tags))
 }

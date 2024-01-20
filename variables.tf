@@ -15,7 +15,8 @@ variable "vpc_definitions" {
     environment    = optional (string, "dev")
     region         = optional (string, "us-east-1")
     cidr_block     = optional (string, "10.0.0.0/16")
-    subnet_count   = optional (number, 3)
+    subnet_length  = optional (number, 8)
+    subnet_count   = optional (number, 2)
     override_tags  = optional (string, "{}")
   }))
 
