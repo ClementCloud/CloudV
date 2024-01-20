@@ -6,14 +6,14 @@ resource "aws_vpc" "test" {
   enable_dns_hostnames = true
   
   tags = {
-    name = "${var.name}-vpc"
+    Name = "${var.name}-vpc"
   }
 }
 resource "aws_internet_gateway" "aws_internet_gateway" {
   vpc_id = aws_vpc.test.id
 
   tags = {
-    name = "${var.name}-igw"
+    Name = "${var.name}-igw"
   }
   
 }
@@ -30,7 +30,7 @@ resource "aws_subnet" "public_subnet" {
  map_public_ip_on_launch = true
 
  tags = {
-  name = "${var.name}-pub-subnet-${count.index + 1}"
+  Name = "${var.name}-pub-subnet-${count.index + 1}"
  }
 }
 
@@ -42,7 +42,7 @@ resource "aws_subnet" "private_subnet" {
  map_public_ip_on_launch = false
 
  tags = {
-  name = "${var.name}-priv-subnet-${count.index + 1}"
+  Name = "${var.name}-priv-subnet-${count.index + 1}"
  }
 }
 
