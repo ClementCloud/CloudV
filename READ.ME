@@ -1,0 +1,12 @@
+default_tags    = {
+  backend             = "local"
+  }
+vpc_definitions = {
+    vpc1 = {
+        subnet_count  = 2
+    }
+    vpc2 = {
+        project_name = "some other project"
+        subnet_count  = 2
+    } 
+}
