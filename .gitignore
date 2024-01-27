@@ -32,3 +32,8 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+terraform
+.terraform
+.terraform-provider-aws_v5.34.0_x5.exe
+terraform-provider-aws_v5.34.0_x5.exe
